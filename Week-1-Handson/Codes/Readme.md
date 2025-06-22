@@ -41,10 +41,10 @@ A logging utility must ensure a single instance throughout the application lifec
 
 ### 🔨 Sample Output
 
-```
+
 ![Screenshot 2025-06-20 204020](https://github.com/user-attachments/assets/fff53210-b64e-4134-a16f-b55c6a35234d)
 
-```
+
 
 ---
 
@@ -75,7 +75,9 @@ Create different types of documents (Word, PDF, Excel) using the Factory Method 
 
 ![Screenshot 2025-06-20 204914](https://github.com/user-attachments/assets/dc63484e-224b-4a6e-ad58-cec7a36e3d57)
 
+
 ---
+
 
 ## 🛒 Exercise 2: E-commerce Platform Search Function ✅
 
@@ -101,7 +103,9 @@ Build a product search tool using linear and binary search techniques.
 
 ### 🔨 Sample Output
 
+
 ![Screenshot 2025-06-20 210229](https://github.com/user-attachments/assets/22e58735-7f2e-4077-8937-a603e6c26630)
+
 
 ### ⏱️ Time Complexity Analysis
 
@@ -132,8 +136,10 @@ Develop a forecasting tool that uses recursion and memoization to compute future
 
 ### 🔨 Sample Output
 
-```
+
 ![Screenshot 2025-06-21 215934](https://github.com/user-attachments/assets/ce29524e-8171-43b2-8300-69b25807cfc3)
+
+
 
 ```
 
