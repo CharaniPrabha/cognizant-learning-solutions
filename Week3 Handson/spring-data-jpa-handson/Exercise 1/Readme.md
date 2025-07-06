@@ -1,3 +1,4 @@
+
 # 📘 Spring Data JPA — Exercise 1: Quick Example
 
 This exercise demonstrates how to build a Spring Boot application using **Spring Data JPA** to interact with a **MySQL** database and fetch records from a simple `country` table.
@@ -49,4 +50,141 @@ CREATE TABLE country (
 
 INSERT INTO country VALUES ('IN', 'India');
 INSERT INTO country VALUES ('US', 'United States of America');
-  
+````
+
+---
+
+## ⚙️ `application.properties`
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3306/ormlearn
+spring.datasource.username=root
+spring.datasource.password=root
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
+spring.jpa.hibernate.ddl-auto=validate
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.MySQL5Dialect
+
+logging.level.org.hibernate.SQL=trace
+logging.level.org.hibernate.type.descriptor.sql=trace
+```
+
+---
+
+## 🧩 Java Classes
+
+### 1. `Country.java` (Entity)
+
+```java
+@Entity
+@Table(name = "country")
+public class Country {
+    @Id
+    @Column(name = "co_code")
+    private String code;
+
+    @Column(name = "co_name")
+    private String name;
+
+    // Getters, Setters, toString()
+}
+```
+
+---
+
+### 2. `CountryRepository.java`
+
+```java
+@Repository
+public interface CountryRepository extends JpaRepository<Country, String> {
+}
+```
+
+---
+
+### 3. `CountryService.java`
+
+```java
+@Service
+public class CountryService {
+    @Autowired
+    private CountryRepository countryRepository;
+
+    @Transactional
+    public List<Country> getAllCountries() {
+        return countryRepository.findAll();
+    }
+}
+```
+
+---
+
+### 4. `OrmLearnApplication.java`
+
+```java
+@SpringBootApplication
+public class OrmLearnApplication {
+
+    private static CountryService countryService;
+    private static final Logger LOGGER = LoggerFactory.getLogger(OrmLearnApplication.class);
+
+    public static void main(String[] args) {
+        ApplicationContext context = SpringApplication.run(OrmLearnApplication.class, args);
+        countryService = context.getBean(CountryService.class);
+        testGetAllCountries();
+    }
+
+    private static void testGetAllCountries() {
+        LOGGER.info("Start");
+        List<Country> countries = countryService.getAllCountries();
+        LOGGER.debug("Countries: {}", countries);
+        LOGGER.info("End");
+    }
+}
+```
+
+---
+
+## ✅ Sample Output
+
+```
+INFO  Start  
+DEBUG Countries: [Country [code=IN, name=India], Country [code=US, name=United States of America]]  
+INFO  End
+```
+
+---
+
+## 📂 Folder Structure
+
+```
+orm-learn/
+├── src/
+│   ├── main/
+│   │   ├── java/com/cognizant/ormlearn/
+│   │   │   ├── model/Country.java
+│   │   │   ├── repository/CountryRepository.java
+│   │   │   ├── service/CountryService.java
+│   │   │   └── OrmLearnApplication.java
+│   └── resources/
+│       └── application.properties
+├── pom.xml
+```
+
+---
+
+## 💡 Notes
+
+* Use `@Transactional` to enable Spring's transaction management.
+* Set `spring.jpa.hibernate.ddl-auto=validate` to ensure that the table already exists.
+* Use `@Entity`, `@Id`, and `@Column` to map Java classes to database tables.
+
+---
+
+## 📌 Conclusion
+
+This exercise demonstrates a complete flow of how **Spring Boot** and **Spring Data JPA** connect to a database and fetch records using minimal code, focusing on best practices and simplicity.
+
+```
+
+
