@@ -1,8 +1,13 @@
 📘 README.md for Spring Core Maven Exercises
 
+---
+
 Spring Core (Maven) - Exercises 1, 2, and 4
 This project contains the hands-on exercises for setting up a basic Spring Framework application using Maven. It includes manual XML configuration and demonstrates Dependency Injection.
 
+---
+
+---
 ✅ Exercise 1: Configuring a Basic Spring Application
 📌 Objective:
 Create a simple Spring application to manage a library backend using XML configuration.
@@ -19,6 +24,10 @@ Load Spring context in LibraryManagementApplication and call service method.
 🖥 Output:
 BookService: Calling repository... BookRepository: Saving book to DB...
 
+
+---
+
+
 ✅ Exercise 2: Implementing Dependency Injection
 📌 Objective:
 Demonstrate how Spring performs setter-based Dependency Injection via XML.
@@ -31,6 +40,8 @@ Wire beans in applicationContext.xml like this:
 </bean>
 ✅ Output:
 Spring will inject the BookRepository into BookService and invoke its method successfully.
+
+---
 
 ## ✅ Exercise 4: Creating and Configuring a Maven Project
 📌 Objective:
@@ -51,6 +62,7 @@ IDE (Eclipse/IntelliJ)
 
 📁 Project Structure:
 
+---
 LibraryManagement/
 ├── src/
 │   ├── main/
@@ -61,10 +73,16 @@ LibraryManagement/
 │   │   └── resources/applicationContext.xml
 ├── pom.xml
 
+
+---
+
+
 💡 How to Run
 Run LibraryManagementApplication.java
 Make sure applicationContext.xml is on classpath
 Output appears in console verifying DI and bean loading
+
+---
 
 🧾 Summary
 Exercise	Topic	Highlights
